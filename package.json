@@ -6,7 +6,8 @@
   "author": "nolec",
   "license": "ISC",
   "scripts": {
-    "start": "nodemon --exec babel-node init.js --delay 2"
+    "dev:server": "nodemon --exec babel-node init.js --delay 2",
+    "dev:assets": "webpack"
   },
   "dependencies": {
     "@babel/core": "^7.6.4",
@@ -20,9 +21,17 @@
     "mongoose": "^5.7.7",
     "morgan": "^1.9.1",
     "multer": "^1.4.2",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   },
   "devDependencies": {
-    "nodemon": "^1.19.4"
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.18.2"
   }
 }
