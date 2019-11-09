@@ -18,6 +18,10 @@ const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
 
+//Github
+const GITHUB = "/auth/github";
+const GITHUB_CALLBACK = "/auth/github/callback";
+
 const urlRoutes = {
   home: HOME,
   join: JOIN,
@@ -44,19 +48,21 @@ const urlRoutes = {
     }
   },
   editVideo: id => {
-    if(id) {
+    if (id) {
       return `/videos/${id}/edit`;
     } else {
       return EDIT_VIDEO;
     }
   },
-  deleteVideo: (id) => {
-    if(id) {
+  deleteVideo: id => {
+    if (id) {
       return `/videos/${id}/delete`;
     } else {
       return DELETE_VIDEO;
     }
-  }
+  },
+  github: GITHUB,
+  githubCallback: GITHUB_CALLBACK
 };
 
 export default urlRoutes;
