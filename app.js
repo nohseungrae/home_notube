@@ -3,17 +3,18 @@ import helmet from "helmet";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import mongoose from "mongoose";
+import passport from "passport";
+import mongoStore from "connect-mongo";
+import session from "express-session";
+import dotenv from "dotenv";
+import { localsMiddleware } from "./middleware";
 import urlRoutes from "./routes";
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
-import { localsMiddleware } from "./middleware";
-import mongoose from "mongoose";
-import mongoStore from "connect-mongo";
-import passport from "passport";
 import "./passport";
-import session from "express-session";
-import dotenv from "dotenv";
+
 dotenv.config();
 console.log(process.env.COOKIE_SECRET);
 
@@ -36,9 +37,9 @@ app.use(
     store: new CokieStore({ mongooseConnection: mongoose.connection })
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(localsMiddleware);
 
 app.use(urlRoutes.home, globalRouter);
